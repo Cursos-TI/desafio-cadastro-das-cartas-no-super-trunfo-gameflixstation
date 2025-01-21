@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 
-// Definindo estilos e cores para o ASCII Art e texto
+// Aqui a regra para definir cada cor
 #define NEGRITO "\033[1m"
 #define RESET "\033[0m"
 #define AMARELO "\033[33m"
 #define VERDE "\033[32m"
 
-// Função para exibir a arte ASCII
+// Aqui adicionei a minha função para deixar cada linha com uma cor definida. 
 void exibirArteAscii() {
     printf(NEGRITO AMARELO " _____           _           _            ____________ \n" RESET);
     printf(NEGRITO VERDE "/  __ \\         | |         | |           | ___ \\ ___ \\\n" RESET);
@@ -22,7 +22,7 @@ void exibirArteAscii() {
 }
 
 int main() {
-    // Variáveis para armazenar informações da cidade
+    // Adicionei as variáveis para armazenar informações da cidade.
     int codigo, populacao, pontosTuristicos;
     float area, pib;
     char nome[50];
@@ -30,14 +30,14 @@ int main() {
     // Exibindo a arte ASCII
     exibirArteAscii();
 
-    // Cadastro de informações
+    // Aqui vai o cadastro de informações
     printf(NEGRITO "Bem-vindo ao sistema de cadastro de cartas!\nCidades\n" RESET);
     
-    // Código da cidade
+    // Pergunta ao usuario o código da cidade
     printf("Digite o código da cidade:\n");
     scanf("%d", &codigo);
 
-    // Nome da cidade
+    // Pergunta ao usuario o nome da cidade
     printf("Digite o nome da cidade:\n");
     getchar(); // Limpa o buffer do teclado antes de usar fgets
     fgets(nome, sizeof(nome), stdin);
@@ -48,7 +48,7 @@ int main() {
     scanf("%d", &populacao);
 
     // Área
-    printf("Digite a área da cidade (km²):\n");
+    printf("Digite a área da cidade (km²):\n"); // Aqui tive problemas para não fazer ele pular. Mesmo usando o "While" ainda pode resultar em bug.
     scanf("%f", &area);
     while ((getchar()) != '\n'); // Limpa o buffer de entrada
 
@@ -62,6 +62,7 @@ int main() {
     scanf("%d", &pontosTuristicos);
 
     // Exibindo as informações cadastradas
+    // Para cada "====" ele deixara mais bonito separando cada informação semelhante a SQL
     printf("\nInformações da Carta:\nCidade\n");
     printf("=============================\n");
     printf(NEGRITO "Código da cidade: " RESET "%d\n", codigo);
